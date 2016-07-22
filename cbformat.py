@@ -28,15 +28,10 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 		self.setupUi(self)
 		self.apply1_button.clicked.connect(self.Button1)
 		self.apply2_button.clicked.connect(self.Button2)
-
-
-	def focusInEvent(self, event):
-		self.cbtext.setText('Got focus')
-
-	def focusOutEvent(self, event):
-		self.cbtext.setText('Lost focus')
+		
 
 	def Button1(self):
+		# print("test")
 		string=get_clipboard()
 		self.cbtext.setText(string)
 		pattern=self.regex1.toPlainText()
@@ -53,6 +48,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 		pattern=re.compile(pattern)
 		res = pattern.sub(rep,string)
 		self.replaced_text.setText(res)
+
 
 
 if __name__ == "__main__":
